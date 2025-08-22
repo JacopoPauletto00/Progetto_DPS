@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "plant.grpc";
+option java_outer_classname = "ElectionProto";
+
+service ElectionService {
+  rpc SendElectionMessage (ElectionMessage) returns (ElectionAck);
+  rpc NotifyPlantExit (PlantExitMessage) returns (ElectionAck);
+}
+message PlantExitMessage {
+  string senderId = 1;
+}
+
+message ElectionMessage {
+  string senderId = 1;
+  double price = 2;
+  string requestId = 3;
+}
+
+message ElectionAck {
+  bool received = 1;
+}

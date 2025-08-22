@@ -1,0 +1,41 @@
+{
+    // Configurazioni di esempio per lanciare più istanze di ThermalPowerPlant da VS Code
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "AdminServer",
+            "request": "launch",
+            "mainClass": "adminserver.AdminServer",
+            "projectName": "PowerPlants_project"
+        },
+        {
+            "type": "java",
+            "name": "AdminClient",
+            "request": "launch",
+            "mainClass": "adminclient.AdminClient",
+            "projectName": "PowerPlants_project"
+        },
+        {
+            "type": "java",
+            "name": "AdminServer",
+            "request": "launch",
+            "mainClass": "adminserver.AdminServer",
+            "projectName": "PowerPlants_project"
+        },
+        {
+            "type": "java",
+            "name": "Run Plant1",
+            "request": "launch",
+            "mainClass": "plant.ThermalPowerPlant",
+            "args": "plant1 50051 localhost 8080"
+        },
+        {
+            "type": "java",
+            "name": "Run Plant2",
+            "request": "launch",
+            "mainClass": "plant.ThermalPowerPlant",
+            "args": "plant2 50052 localhost 8080"
+        }
+    ]
+}
