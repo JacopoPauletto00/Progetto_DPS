@@ -12,8 +12,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
-@ApplicationPath("/")
-public class AdminServer extends Application {
+//@ApplicationPath("/")
+@Path("/api")
+public class AdminServer {
 	@Path("/leave")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -81,7 +82,7 @@ public class AdminServer extends Application {
 	}
 
 	@Path("/register")
-	@POST
+	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public synchronized Response registerPlant(PlantInfo plant) {
@@ -120,11 +121,11 @@ public class AdminServer extends Application {
 	// Launcher main per avvio standalone con Jersey/Grizzly
 	public static void main(String[] args) {
 		String baseUri = "http://localhost:8080/";
-		org.glassfish.jersey.server.ResourceConfig config = new org.glassfish.jersey.server.ResourceConfig(AdminServer.class);
+		//org.glassfish.jersey.server.ResourceConfig config = new org.glassfish.jersey.server.ResourceConfig(AdminServer.class);
 		try {
 			org.glassfish.grizzly.http.server.HttpServer server =
 				org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory.createHttpServer(
-					java.net.URI.create(baseUri), config);
+					java.net.URI.create(baseUri));
 			System.out.println("AdminServer REST avviato su " + baseUri);
 			System.out.println("Premi invio per terminare...");
 			System.in.read();
